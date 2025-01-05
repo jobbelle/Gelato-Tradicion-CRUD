@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gelato & Tradición - CRUD</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Gelato & Tradición</h1>
+        <p>Gestión de productos</p>
+    </header>
+
+    <main>
+        <section class="form-container">
+            <h2>Agregar Producto</h2>
+            <!-- Barra de búsqueda -->
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Buscar productos...">
+            </div>
+
+            <form id="productForm">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+
+                <label for="tipo">Tipo:</label>
+                <select id="tipo" name="tipo" required>
+                    <option value="helado">Helado</option>
+                    <option value="topping">Topping</option>
+                </select>
+
+                <label for="cantidad">Cantidad:</label>
+                <input type="number" id="cantidad" name="cantidad" required>
+
+                <label for="precioCompra">Precio de Compra (COP):</label>
+                <input type="number" id="precioCompra" name="precioCompra" required>
+
+                <label for="precioVenta">Precio de Venta (COP):</label>
+                <input type="number" id="precioVenta" name="precioVenta" required>
+
+                <button type="submit">Agregar</button>
+            </form>
+        </section>
+
+        <section class="product-list">
+            <h2>Lista de Productos</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Tipo</th>
+                        <th>Cantidad</th>
+                        <th>Precio de Compra</th>
+                        <th>Precio de Venta</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="productTableBody"></tbody>
+            </table>
+        </section>
+    </main>
+
+    <!-- Modal de Edición -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="cerrarModal()">&times;</span>
+            <h2>Editar Producto</h2>
+            <form id="editForm">
+                <input type="hidden" id="edit-id" name="id">
+                
+                <label for="edit-nombre">Nombre:</label>
+                <input type="text" id="edit-nombre" name="nombre" required>
+                
+                <label for="edit-tipo">Tipo:</label>
+                <select id="edit-tipo" name="tipo" required>
+                    <option value="helado">Helado</option>
+                    <option value="topping">Topping</option>
+                </select>
+                
+                <label for="edit-cantidad">Cantidad:</label>
+                <input type="number" id="edit-cantidad" name="cantidad" required>
+                
+                <label for="edit-precioCompra">Precio de Compra (COP):</label>
+                <input type="number" id="edit-precioCompra" name="precioCompra" required>
+                
+                <label for="edit-precioVenta">Precio de Venta (COP):</label>
+                <input type="number" id="edit-precioVenta" name="precioVenta" required>
+                
+                <button type="submit">Guardar Cambios</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
